@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤惠狗儿对菜心儿的小小告白❤</title>
+    <style>
+        /* 设置整个页面的背景图片及相关样式 */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* 确保页面至少占满屏幕高度 */
+            margin: 0;
+            padding: 0;
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: fadeInBackground 3s ease-in-out forwards; /* 应用背景逐渐显示动画，持续3秒，缓动效果为ease-in-out，保持最终状态 */
+        }
+
+        /* 定义背景逐渐显示的动画关键帧 */
+        @keyframes fadeInBackground {
+            0% {
+                background-color: rgba(0, 0, 0, 0); /* 初始背景为完全透明，可根据实际背景图片颜色调整这里的颜色值 */
+            }
+            100% {
+                background-color: rgba(0, 0, 0, 1); /* 最终背景为不透明，可根据实际背景图片颜色调整这里的颜色值 */
+            }
+        }
+
+        /* 爱心树容器样式 */
+    .heart-tree-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 倒计时文本容器样式，用于设置初始位置和动画相关属性 */
+    .countdown-text-container {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            opacity: 0; /* 初始透明度为0，即不可见 */
+            animation: showTime 5s cubic-bezier(0.1, 0.1, 0.1, 1) forwards; /* 定义显示时间的动画，持续5s，贝塞尔曲线缓动效果，最后保持最终状态 */
+        }
+
+        /* 倒计时文本样式 */
+    .countdown-text {
+            text-align: center;
+            color: #ffffff; /* 修改时间文字颜色为红色，可根据需要调整颜色值 */
+        }
+
+        /* 倒计时显示区域样式 */
+        #countdown-timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff; /* 修改时间文字颜色为红色，可根据需要调整颜色值 */
+        }
+
+        /* 定义显示时间的动画关键帧 */
+        @keyframes showTime {
+            0% {
+                left: 0;
+                bottom: 0vh; /* 初始位置在屏幕下方中间偏下，可根据实际情况调整 */
+                opacity: 0;
+            }
+            100% {
+                left: -20vw; /* 最终左移到更左边的位置，可根据实际情况调整 */
+                bottom: -35vh; /* 最终移动到屏幕下方偏上的位置，可根据实际情况调整 */
+                opacity: 1;
+            }
+        }
+
+        /* 自动显示文本的容器样式 */
+    .auto-text-container {
+            position: relative;
+            text-align: center;
+            opacity: 0; /* 初始透明度为0，不可见 */
+            animation: showAutoText 3s cubic-bezier(0.1, 0.1, 0.1, 1) forwards; /* 定义自动文本显示动画，持续3秒，贝塞尔曲线缓动效果，最后保持最终状态 */
+            animation-delay: 5s; /* 延迟5秒执行，与倒计时动画时间匹配，确保倒计时结束后开始显示 */
+            color: #ffffff; /* 设置自动文本颜色为绿色，可根据需要调整颜色值 */
+        }
+
+        /* 定义自动文本显示的动画关键帧 */
+        @keyframes showAutoText {
+            0% {
+                left: -10vw;
+                bottom: 20vh; /* 初始位置在屏幕下方中间偏下，可根据实际情况调整 */
+                opacity: 0;
+            }
+            100% {
+                left: -10vw; /* 最终左移到更左边的位置，可根据实际情况调整 */
+                bottom: 20vh; /* 最终移动到屏幕下方偏上的位置，可根据实际情况调整 */
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heart-tree-container">
+        <div class="heart-tree"></div>
+        <div class="countdown-text-container">
+            <p>喜欢你已经是......</p>
+            <p id="countdown-timer">第 0 天 00 小时 00 分钟 00 秒</p>
+        </div>
+        <div class="auto-text-container">
+            <p>小蔡同学：</p>
+            <p>在纷扰和不完美的生活里</p>
+            <p>你的突然出现，让我猝不及防</p>
+            <p>让我在这个世界上，找到属于自己的归属</p>
+            <p>我曾一度认为我会就此冰冷下去</p>
+            <p>而你却一直不离不弃</p>
+            <p>我时隔许久找到了这束轻柔而温暖的光</p>
+            <p>我相信，你是我生命中温暖的存在</p>
+            <p>即使是一刻，但那也是我的光和温暖</p>
+            <p>我好喜欢你，超级喜欢喜欢你</p>
+            <p>                        ----小惠</p>
+        </div>
+    </div>
+
+    <script>
+        // 设置起始日期为2024年11月23日 00:00:00
+        const startDate = new Date('2024-11-23T00:00:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown-timer').innerHTML = `第 ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+        }
+
+        // 每秒更新一次倒计时
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
